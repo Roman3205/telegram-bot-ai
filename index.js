@@ -46,6 +46,8 @@ bot.command('ask', async(ctx) => {
         return await ctx.reply('Команда должна быть с текстом')
       } 
 
+      await ctx.reply('Идет поиск ответа...')
+
       let prompt = ctx.message.text.split(' ').splice(1).join(' ')
       let response = await openai.chat.completions.create({
           model: 'gpt-3.5-turbo',
